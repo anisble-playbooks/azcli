@@ -1,6 +1,6 @@
 galaxy_info:
   author: Jeff Patton
-  description: {{descriptive text
+  description: A role to install the Azure CLI
   company: Jeff Patton
 
   license: MIT
@@ -16,4 +16,5 @@ galaxy_info:
     - all
 
   galaxy_tags:
-  - {{rolename
+  - azure
+  - azcli
