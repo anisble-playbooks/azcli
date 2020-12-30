@@ -1,0 +1,16 @@
+- name: Check azcli version
+  gather_facts: false
+  win_shell: "(az version |ConvertFrom-Json).'azure-cli' 2>&1 |Select-String {{ azcli_version }}"
+  failed_when: false
+  changed_when: false
+  register: azcli_versions_match
+
+- include: download-windows.yml
+  when: azcli_versions_match.rc != 0
+
+- name: Install azcli
+  gather_facts: false
+  win_package:
+    path: "{{ download_dir }}\\azure-cli-{{ azcli_version }}.msi"
+    state: present
+  when: azcli_versions_match.rc != 0

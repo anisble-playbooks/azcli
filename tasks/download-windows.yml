@@ -1,0 +1,5 @@
+---
+  - name: Download Microsoft Azure CLI
+    win_get_url:
+      url: "https://azurecliprod.blob.core.windows.net/msi/azure-cli-{{ azcli_version }}.msi"
+      dest: "{{ download_dir }}\\azure-cli-{{ azcli_version }}.msi"
